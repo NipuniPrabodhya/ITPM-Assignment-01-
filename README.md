@@ -41,8 +41,16 @@ The script will:
 4. Save a screenshot in the `results/` folder.
 5. Record the result in `execution_results.csv`.
 
+### Master Automation (Advanced)
+A master script `automate_all.py` is included that automates all 10 features mentioned in the assignment.
+To run the full suite:
+```bash
+python automate_all.py
+```
+This will generate `all_automated_execution_results.csv` and store all screenshots in the `all_results/` folder.
+
 ### Manual Test Cases
-The `Manual Test Cases for Option 2.xlsx` file contains 36 scenarios covering 10 features:
+The `Manual Test Cases for Option 2.xlsx` file contains 50 scenarios covering 10 features.
 1. Document conversion
 2. PDF editing
 3. Image resizing
