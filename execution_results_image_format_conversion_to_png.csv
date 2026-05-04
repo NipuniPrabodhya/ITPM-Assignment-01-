@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Image Format Conversion (to PNG),https://www.pixelssuite.com/convert-to-png,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_format_conversion_to_png_pass.png

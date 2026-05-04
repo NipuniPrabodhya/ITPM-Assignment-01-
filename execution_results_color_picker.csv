@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Color Picker,https://www.pixelssuite.com/color-picker,sample.png,The uploaded file should be displayed in the preview section.,No preview was detected.,FAIL,all_results\color_picker_fail.png

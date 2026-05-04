@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Cropping,https://www.pixelssuite.com/crop-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\cropping_pass.png

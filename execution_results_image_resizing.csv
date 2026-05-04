@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Image Resizing,https://www.pixelssuite.com/resize-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_resizing_pass.png

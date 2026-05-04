@@ -1,11 +1,11 @@
-feature,url,preview_detected,status,screenshot
-Document Conversion (Image to PDF),https://www.pixelssuite.com/image-to-pdf,True,PASS,all_results/document_conversion_image_to_pdf_pass.png
-Image Resizing,https://www.pixelssuite.com/resize-image,True,PASS,all_results/image_resizing_pass.png
-Cropping,https://www.pixelssuite.com/crop-image,True,PASS,all_results/cropping_pass.png
-Compression,https://www.pixelssuite.com/compress-image,True,PASS,all_results/compression_pass.png
-Image Format Conversion (to PNG),https://www.pixelssuite.com/convert-to-png,True,PASS,all_results/image_format_conversion_to_png_pass.png
-Meme Generation,https://www.pixelssuite.com/meme-generator,True,PASS,all_results/meme_generation_pass.png
-Color Picker,https://www.pixelssuite.com/color-picker,True,PASS,all_results/color_picker_pass.png
-Image Rotation,https://www.pixelssuite.com/rotate-image,True,PASS,all_results/image_rotation_pass.png
-Image Flipping,https://www.pixelssuite.com/flip-image,True,PASS,all_results/image_flipping_pass.png
-PDF Editing,https://www.pixelssuite.com/edit-pdf,True,PASS,all_results/pdf_editing_pass.png
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Document Conversion (Image to PDF),https://www.pixelssuite.com/image-to-pdf,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\document_conversion_image_to_pdf_pass.png
+Image Resizing,https://www.pixelssuite.com/resize-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_resizing_pass.png
+Cropping,https://www.pixelssuite.com/crop-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\cropping_pass.png
+Compression,https://www.pixelssuite.com/compress-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\compression_pass.png
+Image Format Conversion (to PNG),https://www.pixelssuite.com/convert-to-png,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_format_conversion_to_png_pass.png
+Meme Generation,https://www.pixelssuite.com/meme-generator,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\meme_generation_pass.png
+Color Picker,https://www.pixelssuite.com/color-picker,sample.png,The uploaded file should be displayed in the preview section.,No preview was detected.,FAIL,all_results\color_picker_fail.png
+Image Rotation,https://www.pixelssuite.com/rotate-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_rotation_pass.png
+Image Flipping,https://www.pixelssuite.com/flip-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_flipping_pass.png
+PDF Editing,https://www.pixelssuite.com/edit-pdf,sample.png,The uploaded file should be displayed in the preview section.,No preview was detected.,FAIL,all_results\pdf_editing_fail.png

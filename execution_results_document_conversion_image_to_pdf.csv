@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Document Conversion (Image to PDF),https://www.pixelssuite.com/image-to-pdf,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\document_conversion_image_to_pdf_pass.png

@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Image Flipping,https://www.pixelssuite.com/flip-image,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\image_flipping_pass.png

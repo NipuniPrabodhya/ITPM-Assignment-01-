@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+Meme Generation,https://www.pixelssuite.com/meme-generator,sample.png,The uploaded file should be displayed in the preview section.,The preview was detected.,PASS,all_results\meme_generation_pass.png

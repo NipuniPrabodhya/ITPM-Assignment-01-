@@ -1,0 +1,2 @@
+feature,url,input_used,expected_output,actual_output,status,screenshot
+PDF Editing,https://www.pixelssuite.com/edit-pdf,sample.png,The uploaded file should be displayed in the preview section.,No preview was detected.,FAIL,all_results\pdf_editing_fail.png

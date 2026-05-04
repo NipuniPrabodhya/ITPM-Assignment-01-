@@ -42,11 +42,29 @@ def check_preview_visible(page):
     """
     return page.evaluate(script)
 
+def save_individual_csv(feature_name, result):
+    safe_name = feature_name.lower().replace(" ", "_").replace("(", "").replace(")", "")
+    csv_path = Path(f"execution_results_{safe_name}.csv")
+    fieldnames = ["feature", "url", "input_used", "expected_output", "actual_output", "status", "screenshot"]
+    
+    with csv_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow({
+            "feature": feature_name,
+            "url": result["url"],
+            "input_used": "sample.png",
+            "expected_output": "The uploaded file should be displayed in the preview section.",
+            "actual_output": "The preview was detected." if result["preview_detected"] else "No preview was detected.",
+            "status": result["status"],
+            "screenshot": result["screenshot"]
+        })
+
 def run_all_tests():
     png_path = Path("sample.png").resolve()
     out_dir = Path("all_results").resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
-    csv_path = Path("all_automated_execution_results.csv")
+    master_csv_path = Path("all_automated_execution_results.csv")
 
     results = []
 
@@ -64,15 +82,15 @@ def run_all_tests():
 
             try:
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                time.sleep(2) # Give it a moment to render
+                time.sleep(3)
 
                 # Try to find file input
                 file_input = page.locator('input[type="file"]').first
                 if file_input.count() > 0:
                     file_input.set_input_files(str(png_path))
                     
-                    # Wait for preview (max 10s)
-                    for _ in range(20):
+                    # Wait for preview (max 15s)
+                    for _ in range(30):
                         if check_preview_visible(page):
                             preview_found = True
                             break
@@ -89,24 +107,39 @@ def run_all_tests():
                 print(f"Error testing {feature_name}: {e}")
                 status = "ERROR"
             
-            results.append({
+            res_obj = {
                 "feature": feature_name,
                 "url": url,
+                "input_used": "sample.png",
+                "expected_output": "The uploaded file should be displayed in the preview section.",
+                "actual_output": "The preview was detected." if preview_found else "No preview was detected.",
                 "preview_detected": preview_found,
                 "status": status,
                 "screenshot": str(screenshot_path.relative_to(Path.cwd())) if screenshot_path else ""
-            })
+            }
+            results.append(res_obj)
+            save_individual_csv(feature_name, res_obj)
             page.close()
 
         browser.close()
 
-    # Write to CSV
-    with csv_path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["feature", "url", "preview_detected", "status", "screenshot"])
+    # Write to Master CSV
+    with master_csv_path.open("w", newline="", encoding="utf-8") as f:
+        fieldnames = ["feature", "url", "input_used", "expected_output", "actual_output", "status", "screenshot"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(results)
+        for r in results:
+            writer.writerow({
+                "feature": r["feature"],
+                "url": r["url"],
+                "input_used": r["input_used"],
+                "expected_output": r["expected_output"],
+                "actual_output": r["actual_output"],
+                "status": r["status"],
+                "screenshot": r["screenshot"]
+            })
 
-    print(f"\nAll tests completed. Results saved to {csv_path}")
+    print(f"\nAll tests completed. Results saved to {master_csv_path} and individual CSVs.")
 
 if __name__ == "__main__":
     run_all_tests()
