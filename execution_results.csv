@@ -1,0 +1,2 @@
+file_type,file_path,preview_detected,status,screenshot
+PNG,sample.png,True,PASS,results/preview_pass.png

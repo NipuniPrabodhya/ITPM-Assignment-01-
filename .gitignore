@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Results & Screenshots (Keep the folder structure but ignore individual runs if desired)
+# For the assignment, we WANT to include the results folder, so we only ignore system files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
